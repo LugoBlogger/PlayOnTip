@@ -42,7 +42,7 @@ This is much much faster than Python version. MediaPipe gave us a template
 to start the project. We only wrote a single function `playSound(landmarks)`
 to utilize the power of MediaPipe.
 Run `js-implementation/dist/index.js` using "Preview on Web Server" extension
-in VSCode. And have fun!.
+in VSCode. And have fun! 😎
 
 ## Credits
 - [Noizz](https://www.noiiz.com/) (a huge library of royalty free loops and samples)
