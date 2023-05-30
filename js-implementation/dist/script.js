@@ -9,6 +9,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// All CDNs are stored in `lib`
+
+
 import { HandLandmarker, FilesetResolver } from "../lib/vision_bundle.js";
 const demosSection = document.getElementById("demos");
 let handLandmarker = undefined;
@@ -32,10 +35,15 @@ const threshold_arr = [0.1, 0.1, 0.1, 0.1];
 // loading. Machine Learning models can be large and take a moment to
 // get everything needed to run.
 const createHandLandmarker = async () => {
-  const vision = await FilesetResolver.forVisionTasks("https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm");
+  // const vision = await FilesetResolver.forVisionTasks("https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.0/wasm");
+  const vision = {
+    wasmLoaderPath: `../lib/wasm/vision_wasm_internal.js`,
+    wasmBinaryPath: `../lib/wasm/vision_wasm_internal.wasm`,
+  }
+  console.log(vision);
   handLandmarker = await HandLandmarker.createFromOptions(vision, {
     baseOptions: {
-      modelAssetPath: `https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task`,
+      modelAssetPath: `../lib/hand_landmarker.task`,
       delegate: "GPU"
     },
     runningMode: runningMode,
@@ -94,7 +102,7 @@ let lastVideoTime = -1;
 let results = undefined;
 let play_state = false;
 let previousIdx;
-console.log(video);
+// console.log(video);
 async function predictWebcam() {
   canvasElement.style.width = video.videoWidth;
   canvasElement.style.height = video.videoHeight;
