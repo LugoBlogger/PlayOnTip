@@ -46,5 +46,6 @@ in VSCode. And have fun!.
 
 ## Credits
 - [Noizz](https://www.noiiz.com/) (a huge library of royalty free loops and samples)
-- [MediaPipe] (JS implementation used heavily this template, see
+- [MediaPipe](https://developers.google.com/mediapipe) 
+  (JS implementation used heavily this template, see
 the template in [https://codepen.io/mediapipe-preview/pen/gOKBGPN](https://codepen.io/mediapipe-preview/pen/gOKBGPN))
